@@ -32,9 +32,15 @@
     }
 
     .logo {
-      width: 120px;
+      width: 180px;
       height: auto;
       margin-bottom: 20px;
+      animation: floatDown 2.5s ease-in-out forwards;
+    }
+
+    @keyframes floatDown {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(10px); }
     }
 
     .title {
@@ -87,7 +93,7 @@
       setTimeout(() => {
         document.getElementById('loader-screen').style.display = 'none';
         document.getElementById('menu-screen').style.display = 'flex';
-      }, 4000);
+      }, 1800);
     }
   </script>
 </head>
@@ -102,7 +108,7 @@
   </div>
 
   <div id="menu-screen" style="display: none;">
-    <img src="https://i.postimg.cc/tgvfRcT5/image.png" alt="Menu Image" class="menu-image">
+    <img src="https://i.postimg.cc/zfq9v5pT/image.png" alt="Menu Image" class="menu-image">
   </div>
 </body>
 </html>
