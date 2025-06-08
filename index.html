@@ -15,6 +15,20 @@
       align-items: center;
       justify-content: center;
       height: 100vh;
+      overflow: hidden;
+    }
+
+    #loader-screen, #menu-screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #141414;
     }
 
     .logo {
@@ -25,7 +39,8 @@
 
     .title {
       font-size: 1.4rem;
-      margin-bottom: 5px;
+      font-weight: bold;
+      margin-bottom: 8px;
     }
 
     .copyright {
@@ -55,26 +70,39 @@
     }
 
     .handle {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       color: #999999;
+      position: absolute;
+      bottom: 10px;
+    }
+
+    .menu-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   </style>
   <script>
     window.onload = function() {
       setTimeout(() => {
-        // redirect or hide loader here if needed
-        document.querySelector('.auth').textContent = 'Authentication successful';
-      }, 4000); // 4 seconds
+        document.getElementById('loader-screen').style.display = 'none';
+        document.getElementById('menu-screen').style.display = 'flex';
+      }, 4000);
     }
   </script>
 </head>
 <body>
-  <img src="https://i.postimg.cc/Gm3bRsgr/image.png" alt="TON Logo" class="logo">
-  <div class="title">Gift Cases by TON</div>
-  <div class="copyright">Copyright © 2025</div>
-  <div class="loader"></div>
-  <div class="auth">Authenticating...</div>
-  <div class="handle">@case</div>
-  <div class="handle">@case_official_bot</div>
+  <div id="loader-screen">
+    <img src="895ccbe6-e89a-4b08-9c60-9d650bdfd063.png" alt="TON Logo" class="logo">
+    <div class="title">Gift Cases by TON</div>
+    <div class="copyright">Copyright © 2025</div>
+    <div class="loader"></div>
+    <div class="auth">Authenticating...</div>
+    <div class="handle">@case</div>
+  </div>
+
+  <div id="menu-screen" style="display: none;">
+    <img src="895ccbe6-e89a-4b08-9c60-9d650bdfd063.png" alt="Menu Image" class="menu-image">
+  </div>
 </body>
 </html>
