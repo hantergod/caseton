@@ -10,10 +10,6 @@
       background-color: #141414;
       color: white;
       font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       height: 100vh;
       overflow: hidden;
     }
@@ -32,10 +28,10 @@
     }
 
     .logo {
-      width: 180px;
+      width: 120px;
       height: auto;
       margin-bottom: 20px;
-      animation: floatDown 2.5s ease-in-out forwards;
+      animation: floatDown 2s ease-in-out forwards;
     }
 
     @keyframes floatDown {
@@ -82,10 +78,40 @@
       bottom: 10px;
     }
 
-    .menu-image {
+    .menu-bar {
+      position: absolute;
+      bottom: 0;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      display: flex;
+      justify-content: space-around;
+      background-color: #1e1e1e;
+      padding: 18px 0;
+    }
+
+    .menu-button {
+      flex: 1;
+      text-align: center;
+      color: white;
+      font-size: 0.85rem;
+      padding: 6px 0;
+      transition: color 0.2s;
+    }
+
+    .menu-button img {
+      width: 24px;
+      height: 24px;
+      display: block;
+      margin: 0 auto 4px;
+      filter: brightness(0.6);
+      transition: filter 0.3s;
+    }
+
+    .menu-button.active img {
+      filter: brightness(1) sepia(1) hue-rotate(180deg) saturate(10);
+    }
+
+    .menu-button.active {
+      color: #1ab6ff;
     }
   </style>
   <script>
@@ -93,13 +119,18 @@
       setTimeout(() => {
         document.getElementById('loader-screen').style.display = 'none';
         document.getElementById('menu-screen').style.display = 'flex';
-      }, 1800);
+      }, 3000);
+    }
+
+    function activate(button) {
+      document.querySelectorAll('.menu-button').forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
     }
   </script>
 </head>
 <body>
   <div id="loader-screen">
-    <img src="https://i.postimg.cc/Gm3bRsgr/image.png" alt="TON Logo" class="logo">
+    <img src="895ccbe6-e89a-4b08-9c60-9d650bdfd063.png" alt="TON Logo" class="logo">
     <div class="title">Gift Cases by TON</div>
     <div class="copyright">Copyright © 2025</div>
     <div class="loader"></div>
@@ -107,8 +138,25 @@
     <div class="handle">@case</div>
   </div>
 
-  <div id="menu-screen" style="display: none;">
-    <img src="https://i.postimg.cc/zfq9v5pT/image.png" alt="Menu Image" class="menu-image">
+  <div id="menu-screen" style="display: none; flex-direction: column; justify-content: flex-end; align-items: center;">
+    <div class="menu-bar">
+      <div class="menu-button active" onclick="activate(this)">
+        <img src="https://i.postimg.cc/vBysWCsd/2147483648-219747.jpg" alt="Главная">
+        Главная
+      </div>
+      <div class="menu-button" onclick="activate(this)">
+        <img src="https://i.postimg.cc/vBysWCsd/2147483648-219747.jpgg" alt="Рейтинг">
+        Рейтинг
+      </div>
+      <div class="menu-button" onclick="activate(this)">
+        <img src="https://i.postimg.cc/vBysWCsd/2147483648-219747.jpg" alt="Профиль">
+        Профиль
+      </div>
+      <div class="menu-button" onclick="activate(this)">
+        <img src="https://i.postimg.cc/vBysWCsd/2147483648-219747.jpg" alt="История">
+        История
+      </div>
+    </div>
   </div>
 </body>
 </html>
